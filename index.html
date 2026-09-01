@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr.Conan | تسجيل الدخول</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Cairo", sans-serif;
+      background: #F8FAFC;
+      color: #172033;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 430px;
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 12px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .brand h1 {
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .brand p {
+      color: #64748B;
+      font-size: 14px;
+      margin-top: 3px;
+    }
+
+    .card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 35px rgba(23, 32, 51, 0.08);
+    }
+
+    .card h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 22px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid #E2E8F0;
+      border-radius: 11px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    .field input:focus {
+      border-color: #2563EB;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .login-btn {
+      width: 100%;
+      border: none;
+      border-radius: 11px;
+      padding: 13px;
+      background: #2563EB;
+      color: white;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 5px;
+    }
+
+    .login-btn:hover {
+      background: #1D4ED8;
+      transform: translateY(-1px);
+    }
+
+    .signup {
+      text-align: center;
+      margin-top: 22px;
+      font-size: 14px;
+      color: #64748B;
+    }
+
+    .signup a {
+      color: #7C3AED;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .notice {
+      display: none;
+      margin-bottom: 18px;
+      padding: 11px;
+      border-radius: 10px;
+      background: #FEF3C7;
+      color: #92400E;
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <div class="brand">
+      <div class="logo">D</div>
+      <h1>Dr.Conan</h1>
+      <p>منصة مجانية للقدرات الكمية</p>
+    </div>
+
+    <section class="card">
+
+      <h2>تسجيل الدخول</h2>
+
+      <div class="notice" id="notice"></div>
+
+      <form id="loginForm">
+
+        <div class="field">
+          <label for="email">البريد الإلكتروني</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="example@email.com"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="password">كلمة المرور</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="••••••••"
+            required
+          >
+        </div>
+
+        <button type="submit" class="login-btn">
+          تسجيل الدخول
+        </button>
+
+      </form>
+
+      <div class="signup">
+        ليس لديك حساب؟
+        <a href="#">إنشاء حساب</a>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
