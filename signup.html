@@ -282,12 +282,11 @@
 
       form.reset();
 
-    } catch (error) {
-      console.error(error);
-      notice.textContent = "❌ حدث خطأ أثناء إنشاء الحساب. حاول مرة أخرى.";
-      notice.style.display = "block";
-    }
-  });
+ } catch (error) {
+  console.error(error);
+  notice.textContent = "❌ الخطأ: " + error.message;
+  notice.style.display = "block";
+} 
 </script>
 
 
