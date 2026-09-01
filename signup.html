@@ -155,7 +155,7 @@
     <div class="brand">
       <div class="logo">D</div>
       <h1>Dr.Conan</h1>
-      <p>منصة مجانية للقدرات الكمية</p>
+      <p>منصة مجانية للقدرات  </p>
     </div>
 
     <section class="card">
@@ -220,6 +220,76 @@
     </section>
 
   </main>
+<script src="config.js"></script> 
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+  const form = document.getElementById("signupForm");
+  const notice = document.getElementById("notice");
+
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    notice.style.display = "none";
+
+    if (password !== confirmPassword) {
+      notice.textContent = "❌ كلمتا المرور غير متطابقتين.";
+      notice.style.display = "block";
+      return;
+    }
+
+    try {
+      const { data: allowed, error: allowedError } =
+        await supabaseClient.rpc("is_email_allowed", {
+          check_email: email
+        });
+
+      if (allowedError) throw allowedError;
+
+      if (!allowed) {
+        notice.textContent = "⚠️ هذا البريد الإلكتروني غير مسموح له بإنشاء حساب.";
+        notice.style.display = "block";
+        return;
+      }
+
+      const { data, error } = await supabaseClient.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+          data: {
+            username: username
+          }
+        }
+      });
+
+      if (error) throw error;
+
+      
+
+      notice.textContent = "✅ تم إنشاء الحساب بنجاح!";
+      notice.style.display = "block";
+
+      form.reset();
+
+    } catch (error) {
+      console.error(error);
+      notice.textContent = "❌ حدث خطأ أثناء إنشاء الحساب. حاول مرة أخرى.";
+      notice.style.display = "block";
+    }
+  });
+</script>
+
 
 </body>
 </html>
